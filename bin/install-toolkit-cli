@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
-#set -euo pipefail
+set -euo pipefail
 
-DEFAULT_VERSION=$(cat PROV_VERSION)
-PROV_VERSION=${VERSION:-$DEFAULT_VERSION}
-
-path=https://repo.phdata.io/$TOOLKIT_ACCOUNT_TOKEN/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/$PROV_VERSION/toolkit-cli-$PROV_VERSION.zip
-
-curl --fail --output toolkit-cli.zip "$path"
-unzip -jd toolkit-cli toolkit-cli.zip
+echo $TOOLKIT_CLI_DOWNLOAD_URL
+curl --fail --output toolkit-cli.zip "$TOOLKIT_CLI_DOWNLOAD_URL"
+unzip -jd install toolkit-cli.zip
